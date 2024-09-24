@@ -1,0 +1,5 @@
+numpy==2.1.1
+pandas==2.2.3
+opencv-python==4.10.0.84 
+tensorflow==2.17.0
+mediapipe==0.10.4
