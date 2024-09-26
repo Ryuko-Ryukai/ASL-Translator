@@ -1,12 +1,9 @@
 import cv2
 import mediapipe as mp
-from FPS import fps
 
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
-
-fpscal = fps(buffer_len=10)
 
 # For static images:
 IMAGE_FILES = []
@@ -66,7 +63,7 @@ with mp_hands.Hands(
       # If loading a video, use 'break' instead of 'continue'.
       continue
     
-    fixedfps = fpscal.getter()
+
     # To improve performance, optionally mark the image as not writeable to
     # pass by reference.
     image.flags.writeable = False
@@ -78,7 +75,6 @@ with mp_hands.Hands(
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     if results.multi_hand_landmarks:
       for hand_landmarks in results.multi_hand_landmarks:
-        print(fixedfps)
         print(hand_landmarks)
         mp_drawing.draw_landmarks(
             image,
