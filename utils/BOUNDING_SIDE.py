@@ -25,7 +25,7 @@ class bbox:
         self.__y_min = int(self.__y_min * img.shape[0]) - offset
         self.__y_max = int(self.__y_max * img.shape[0]) + offset
 
-    def bbox_show(self, img, label)->None:
+    def bbox_show(self, img, label=None)->None:
         """
         Show the img capture from the front camera
 
