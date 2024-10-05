@@ -37,7 +37,7 @@ class webcam:
                 img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
                 if results.multi_hand_landmarks:
                     for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
-                        labels = handedness.classification[0].label
+                        #labels = handedness.classification[0].label
                         #print(f'Landmarks: {hand_landmarks}')
 
                         self.__mp_drawing.draw_landmarks(
@@ -48,7 +48,8 @@ class webcam:
                             self.__mp_drawing_styles.get_default_hand_connections_style())
                         
                         bbox.bbox_draw(img=img, hand_landmarks=hand_landmarks)
-                        bbox.bbox_show(img=img, label=labels)
+                        #bbox.bbox_show(img=img, label=labels)
+                        bbox.bbox_show(img=img)
 
                 fps.fpsCal()
                 fps.FPS_FRONT_CAM_SHOW(img=img)
